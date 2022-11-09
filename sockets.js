@@ -1,13 +1,13 @@
 import ProductContainer from './src/containers/productContainer.js';
 import MsgContainer from './src/containers/msgContainer.js';
 
-import option from './src/databases/configMariaDB.js';
+// import option from './src/databases/configMariaDB.js';
 import config from './src/databases/configSQLiteDB.js';
 
 import normalizeMessages from './src/normalizer/normalizeMessages.js'
 import { loggerInfo } from './config/log4.js';
 
-const productsApi = new ProductContainer(option, 'products');
+const productsApi = new ProductContainer(config, 'products');
 const messagesApi = new MsgContainer(config, 'messages');
 
 const Sockets = (io) => {
