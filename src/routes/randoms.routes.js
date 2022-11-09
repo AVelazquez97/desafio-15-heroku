@@ -15,7 +15,6 @@ router.get('/randoms', (req, res) => {
   forkedProcess.on('message', (randomNumbers) => {
     res.status(200).json({ port: args.port, pid, randomNumbers });
   });
-  res.status(200).json({ msg: 'Modificado para ánalisis de rendimiento' });
 });
 
 export default router;
