@@ -17,30 +17,43 @@ const Sockets = (io) => {
       // carga inicial de productos
       socket.emit('view-products', await productsApi.readProducts());
 
-      // actualizacion de productos
-      socket.on('update-product', async (product) => {
-        await productsApi.insertProduct(product);
-        io.sockets.emit('view-products', await productsApi.readProducts());
-      });
     } catch (error) {
       productsApi.error = error;
-      socket.emit('view-products', productsApi);
+      io.sockets.emit('view-products', productsApi);
     }
+
+    // actualizacion de productos
+    socket.on('update-product', async (product) => {
+      try {
+        await productsApi.insertProduct(product);
+        io.sockets.emit('view-products', await productsApi.readProducts());
+
+      } catch (error) {
+        productsApi.error = error;
+        io.sockets.emit('view-products', productsApi);
+      }
+    })
 
     try {
       // carga inicial de mensajes
       socket.emit('view-messages', normalizeMessages(await messagesApi.readMsgs()));
       
-      // actualizacion de mensajes
-      socket.on('new-message', async (msg) => {
+    } catch (error) {
+      messagesApi.error = error;
+      io.sockets.emit('view-messages', messagesApi);
+    }
+
+    // actualizacion de mensajes
+    socket.on('new-message', async (msg) => {
+      try {
         msg.fyh = new Date().toLocaleString();
         await messagesApi.insertMsg(msg);
         io.sockets.emit('view-messages', normalizeMessages(await messagesApi.readMsgs()));
-      });
-    } catch (error) {
-      messagesApi.error = error;
-      socket.emit('view-messages', messagesApi);
-    }
+      } catch (error) {
+        messagesApi.error = error;
+        io.sockets.emit('view-messages', messagesApi);
+      }
+    });
 
     socket.on('disconnect', (_) => {
       loggerInfo.info(`El cliente con el id: [${socket.id}] se ha desconectado.\n`);
