@@ -1,0 +1,8 @@
+[2022-11-08T17:48:32.699] [WARN] Warn - Ruta: "/hola" | Método: "GET" | Respuesta HTTP: "404: Not Found"
+[2022-11-08T17:52:36.166] [WARN] Warn - Ruta: "/hola" | Método: "GET" | Respuesta HTTP: "404: Not Found"
+[2022-11-08T17:52:51.641] [WARN] Warn - Ruta: "/hola/David/Esto/Es/Una/Prueba" | Método: "GET" | Respuesta HTTP: "404: Not Found"
+    
+[2022-11-08T22:06:03.490] [WARN] Warn - Ruta: "/hola" | Método: "GET" | Respuesta HTTP: "404: Not Found"
+[2022-11-08T22:06:29.204] [WARN] Warn - Ruta: "/hola/que/tal" | Método: "GET" | Respuesta HTTP: "404: Not Found"
+[2022-11-08T22:08:20.965] [WARN] Warn - Ruta: "/hola/que/tal" | Método: "GET" | Respuesta HTTP: "404: Not Found"
+[2022-11-08T22:08:27.851] [WARN] Warn - Ruta: "/holinfo" | Método: "GET" | Respuesta HTTP: "404: Not Found"

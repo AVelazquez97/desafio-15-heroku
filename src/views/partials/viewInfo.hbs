@@ -1,0 +1,59 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Info del sistema</title>
+  </head>
+  <body>
+    <div class='jumbotron'>
+      <h1>Información del sistema</h1>
+      <hr />
+      <div class='table-responsive'>
+        <table class='table table-dark mt-2'>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Argumentos de entrada</td>
+              <td>{{info.args}}</td>
+            </tr>
+            <tr>
+              <td>Path de ejecución</td>
+              <td>{{info.path}}</td>
+            </tr>
+            <tr>
+              <td>Nombre de la plataforma (sistema operativo)</td>
+              <td>{{info.os}}</td>
+            </tr>
+            <tr>
+              <td>Process id</td>
+              <td>{{info.pid}}</td>
+            </tr>
+            <tr>
+              <td>Versión de node.js</td>
+              <td>{{info.nodeVersion}}</td>
+            </tr>
+            <tr>
+              <td>Carpeta del proyecto</td>
+              <td>{{info.dirPath}}</td>
+            </tr>
+            <tr>
+              <td>Memoria total reservada (rss)</td>
+              <td>{{info.memoryUsage}} MiB</td>
+            </tr>
+            <tr>
+              <td>Cantidad de procesadores del servidor</td>
+              <td>{{info.numCPUs}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
