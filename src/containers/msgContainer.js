@@ -49,7 +49,10 @@ class MsgContainer {
 
   readMsgs = async () => {
     try {
-      let messages = await readAllElements(this.config, this.tableName);
+      const messages = await readAllElements(this.config, this.tableName);
+      if (!messages.length) {
+        throw 'No se encontraron mensajes en la base de datos.';
+      }
       return messages;
     } catch (error) {
       loggerError.error(error);
