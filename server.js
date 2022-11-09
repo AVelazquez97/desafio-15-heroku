@@ -35,7 +35,8 @@ if (clusterMode && cluster.isPrimary) {
 
   /* ----------------------------- socket settings ---------------------------- */
   Sockets(io);
-  const server = serverHTTP.listen(args.port, () => {
+  const PORT = process.env.PORT || args.port;
+  const server = serverHTTP.listen(PORT, () => {
     loggerInfo.info(
       `Servidor HTTP escuchando en el puerto ${server.address().port}`
     );
